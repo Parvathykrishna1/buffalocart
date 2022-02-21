@@ -1,4 +1,6 @@
 package com.buffalocart.testscripts;
 
-public class LoginPageTest {
+import com.buffalocart.automationcore.Base;
+
+public class LoginPageTest extends Base {
 }

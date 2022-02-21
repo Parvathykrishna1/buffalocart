@@ -1,4 +1,19 @@
 package com.buffalocart.pages;
 
-public class LoginPage {
+import com.buffalocart.utilities.TestHelperUtility;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+
+public class LoginPage extends TestHelperUtility {
+    WebDriver driver;
+
+    /**Page Constructor**/
+    public LoginPage(WebDriver driver){
+        this.driver=driver;
+        PageFactory.initElements(driver,this);
+    }
+
+    /**Page Elements**/
+
+
 }
