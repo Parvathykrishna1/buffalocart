@@ -24,8 +24,13 @@ public class HomePage extends TestHelperUtility {
     @FindBy(xpath = _userName)
     private WebElement userName;
 
-    private final String _dateDisplayed="//div[@class='m-8 pull-left mt-15 hidden-xs']/strong";
-    @FindBy(xpath = _dateDisplayed) private WebElement dateDisplayed;
+    private final String _homePageTitle = "//span[@class='logo-lg']";
+    @FindBy(xpath = _homePageTitle)
+    private WebElement homePageTitle;
+
+    private final String _dateDisplayed = "//div[@class='m-8 pull-left mt-15 hidden-xs']/strong";
+    @FindBy(xpath = _dateDisplayed)
+    private WebElement dateDisplayed;
 
     /**
      * User action methods
@@ -40,10 +45,11 @@ public class HomePage extends TestHelperUtility {
         return title;
     }
 
-    public String getDateDisplayedOnHomePage(){
+    public String getDateDisplayedOnHomePage() {
         return page.getElementText(dateDisplayed);
     }
-    public String getSystemDate(){
+
+    public String getSystemDate() {
         return date.getDateOfSystem();
     }
 }
