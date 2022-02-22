@@ -49,7 +49,7 @@ public class LoginPageTest extends Base {
         extentTest.get().log(Status.PASS, "user logged in successfully");
     }
 
-    @Test(priority = 3, description = "TC_003_Verification of user login")
+    @Test(priority = 3, description = "TC_003_Verification of user login with invalid credentials")
     public void verify_user_login_with_invalid_user_credentials() {
         login = new LoginPage(driver);
         List<List<String>> data = excel.excelDataReader("LoginPage");
@@ -67,7 +67,7 @@ public class LoginPageTest extends Base {
         extentTest.get().log(Status.PASS, "user not able logged in successfully");
     }
 
-    @Test(priority = 4,description = "TC_004_Verify whetehr the user is able to click on 'Remember me' checkbox")
+    @Test(priority = 4,description = "TC_004_Verify whether the user is able to click on 'Remember me' checkbox")
     public void verify_Whether_User_Able_To_Click_On_RememberMe_CheckBox() {
         login = new LoginPage(driver);
         login.clickOnRememberMeCheckBox();
