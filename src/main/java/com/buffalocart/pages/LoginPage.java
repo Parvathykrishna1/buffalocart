@@ -9,13 +9,17 @@ import org.openqa.selenium.support.PageFactory;
 public class LoginPage extends TestHelperUtility {
     WebDriver driver;
 
-    /**Page Constructor**/
-    public LoginPage(WebDriver driver){
-        this.driver=driver;
-        PageFactory.initElements(driver,this);
+    /**
+     * Page Constructor
+     **/
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
-    /**Page Elements**/
+    /**
+     * Page Elements
+     **/
     private final String _userName = "username";
     @FindBy(id = _userName)
     private WebElement userName;
@@ -28,7 +32,17 @@ public class LoginPage extends TestHelperUtility {
     @FindBy(xpath = _loginButton)
     private WebElement loginButton;
 
-    /**User Action Methods**/
+    private final String _rememberMeCheckBox = "//div[@class='checkbox']//input[@type='checkbox']";
+    @FindBy(xpath = _rememberMeCheckBox)
+    private WebElement rememberMeCheckBox;
+
+    private final String _errorMessage = "//span[@class='help-block']/strong";
+    @FindBy(xpath = _errorMessage)
+    private WebElement errorMessage;
+
+    /**
+     * User Action Methods
+     **/
     public String getLoginPageTitle() {
         String title = page.getPageTitle(driver);
         return title;
@@ -47,6 +61,15 @@ public class LoginPage extends TestHelperUtility {
         return new HomePage(driver);
     }
 
+    public void clickOnRememberMeCheckBox() {
+        page.clickOnElement(rememberMeCheckBox);
+    }
 
+    public boolean rememberMeCheckBoxIsSelected() {
+        return page.isSelected(rememberMeCheckBox);
+    }
 
+    public String getErrorMessage() {
+        return page.getElementText(errorMessage);
+    }
 }
