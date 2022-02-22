@@ -15,5 +15,11 @@ public class LoginPage extends TestHelperUtility {
 
     /**Page Elements**/
 
+    /**User Action Methods**/
+    public String getLoginPageTitle() {
+        String title = page.getPageTitle(driver);
+        return title;
+    }
+
 
 }
