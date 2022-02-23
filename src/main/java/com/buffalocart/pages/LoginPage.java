@@ -40,6 +40,10 @@ public class LoginPage extends TestHelperUtility {
     @FindBy(xpath = _errorMessage)
     private WebElement errorMessage;
 
+    private final String _forgotYourPassword = "//div[@class='col-md-8 col-md-offset-4']//a[@class='btn btn-link']";
+    @FindBy(xpath = _forgotYourPassword)
+    private WebElement forgotYourPassword;
+
     /**
      * User Action Methods
      **/
@@ -71,5 +75,10 @@ public class LoginPage extends TestHelperUtility {
 
     public String getErrorMessage() {
         return page.getElementText(errorMessage);
+    }
+
+    public ResetPasswordPage clickOnForgotPassword() {
+        page.clickOnElement(forgotYourPassword);
+        return new ResetPasswordPage(driver);
     }
 }

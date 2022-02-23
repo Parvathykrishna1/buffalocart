@@ -6,6 +6,7 @@ import com.buffalocart.automationcore.Base;
 import com.buffalocart.listeners.TestListener;
 import com.buffalocart.pages.HomePage;
 import com.buffalocart.pages.LoginPage;
+import com.buffalocart.pages.ResetPasswordPage;
 import com.buffalocart.utilities.ExcelUtility;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -14,6 +15,7 @@ import java.util.List;
 
 public class LoginPageTest extends Base {
     LoginPage login;
+    ResetPasswordPage resetPassword;
     HomePage home;
     ExcelUtility excel = new ExcelUtility();
     ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
@@ -67,7 +69,7 @@ public class LoginPageTest extends Base {
         extentTest.get().log(Status.PASS, "user not able logged in successfully");
     }
 
-    @Test(priority = 4,description = "TC_004_Verify whether the user is able to click on 'Remember me' checkbox")
+    @Test(priority = 4, description = "TC_004_Verify whether the user is able to click on 'Remember me' checkbox")
     public void verify_Whether_User_Able_To_Click_On_RememberMe_CheckBox() {
         login = new LoginPage(driver);
         login.clickOnRememberMeCheckBox();
@@ -76,6 +78,23 @@ public class LoginPageTest extends Base {
         extentTest.get().log(Status.PASS, "CheckBox  selected successfully");
         Assert.assertTrue(login.rememberMeCheckBoxIsSelected());
         extentTest.get().log(Status.PASS, "Assertion True for checkbox selected ");
+    }
+
+    @Test(priority = 5, description = "TC_005_Verify error message displayed on  Reset Password page with invalid email id")
+    public void Verify_error_message_displayed_on_Reset_Password_page_with_invalid_email_id() {
+        login = new LoginPage(driver);
+        resetPassword = login.clickOnForgotPassword();
+        extentTest.get().log(Status.PASS, "clicked on Forgot password successfully");
+        List<List<String>> data = excel.excelDataReader("ResetPasswordPage");
+        String email = data.get(1).get(0);
+        resetPassword.enterEmailAddress(email);
+        extentTest.get().log(Status.PASS, "Email address entered successfully");
+        resetPassword.clickOnSendPasswordResetLinkButton();
+        extentTest.get().log(Status.PASS, "clicked on send password reset link button successfully");
+        String actualErrorMsg = resetPassword.getErrorMsgDisplayed();
+        String expectedErrorMsg = data.get(1).get(1);
+        Assert.assertEquals(actualErrorMsg, expectedErrorMsg, "ERROR::Expected error message is not matched with actual error message");
+        extentTest.get().log(Status.PASS, "Error message displayed on  Reset Password page with invalid email id");
     }
 
 }
