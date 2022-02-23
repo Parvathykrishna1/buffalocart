@@ -18,6 +18,4 @@ public class ResetPasswordPageTest extends Base {
     ExcelUtility excel = new ExcelUtility();
     ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
 
-
-
 }

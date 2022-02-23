@@ -25,4 +25,9 @@ WebDriver driver;
         String uname = page.getElementText(userName);
         return uname;
     }
+
+    public String getHomePageTitle() {
+        String title = page.getPageTitle(driver);
+        return title;
+    }
 }
