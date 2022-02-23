@@ -14,22 +14,12 @@ import java.util.List;
 public class SignOutPage extends TestHelperUtility {
     WebDriver driver;
 
-    /**
-     * Page Constructors
-     **/
+    /**Page Constructors**/
 
     public SignOutPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    /**
-     * Page Elements
-     **/
-
-
-    /**
-     * User Actions
-     **/
 
 }

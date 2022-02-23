@@ -72,10 +72,13 @@ public class HomePageTest extends Base {
         home = login.clickOnLoginButton();
         extentTest.get().log(Status.PASS, "clicked on login button successfully");
         home.clickOnEndTourButton();
+        extentTest.get().log(Status.PASS, "clicked on End Tour button successfully");
         String dropdown=data.get(0).get(3);
         login=home.selectFromDropDownForSignOut(dropdown);
+        extentTest.get().log(Status.PASS, "clicked on User account name successfully");
         String option=data.get(1).get(0);
         login=home.selectFromDropDownForSignOut(option);
+        extentTest.get().log(Status.PASS, "clicked on sign out button successfully");
     }
 }
 

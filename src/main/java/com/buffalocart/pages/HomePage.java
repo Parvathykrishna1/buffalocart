@@ -38,16 +38,12 @@ public class HomePage extends TestHelperUtility {
     @FindBy(xpath = _userAccountName)
     private WebElement userAccountName;
 
-    private final String _signOutButton = "//div[@class='pull-right']/a[@class='btn btn-default btn-flat']";
-    @FindBy(xpath = _signOutButton)
-    private WebElement signOutButton;
-
     private final String _endTourButton = "//button[@class='btn btn-default btn-sm']";
     @FindBy(xpath = _endTourButton)
     private WebElement endTourButton;
 
     private final String _dropdownButton = "//div[@class='navbar-custom-menu']";
-    @FindBy(xpath =_dropdownButton)
+    @FindBy(xpath = _dropdownButton)
     private List<WebElement> dropdownButton;
 
     private final String _signOutOptions = "//li[@class='user-footer']";
