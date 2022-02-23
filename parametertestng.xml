@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <listeners>
+        <listener class-name="com.buffalocart.listeners.TestListener"/>
+    </listeners>
+    <test name="Functional Test">
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <class name="com.buffalocart.testscripts.LoginPageTest">
+                <methods>
+                    <include name="verifyLoginPageTitle"/>
+                    <include name="verify_user_login_with_valid_user_credentials"/>
+                    <include name="verify_user_login_with_invalid_user_credentials"/>
+                    <include name="verify_Whether_User_Able_To_Click_On_RememberMe_CheckBox"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
