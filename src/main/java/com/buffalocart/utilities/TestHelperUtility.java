@@ -6,4 +6,5 @@ public class TestHelperUtility {
     public RobotUtility robot = new RobotUtility();
     public TableUtility table = new TableUtility();
     public WaitUtility wait = new WaitUtility();
+    public DateUtility date=new DateUtility();
 }

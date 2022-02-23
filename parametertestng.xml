@@ -13,6 +13,7 @@
                     <include name="verify_user_login_with_valid_user_credentials"/>
                     <include name="verify_user_login_with_invalid_user_credentials"/>
                     <include name="verify_Whether_User_Able_To_Click_On_RememberMe_CheckBox"/>
+
                 </methods>
             </class>
         </classes>

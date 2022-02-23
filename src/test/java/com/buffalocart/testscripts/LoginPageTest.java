@@ -8,6 +8,7 @@ import com.buffalocart.pages.HomePage;
 import com.buffalocart.pages.LoginPage;
 import com.buffalocart.pages.ResetPasswordPage;
 import com.buffalocart.utilities.ExcelUtility;
+import com.buffalocart.utilities.WaitUtility;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -115,4 +116,24 @@ public class LoginPageTest extends Base {
         Assert.assertEquals(actualHomePageTitle, expectedHomePageTitle, "ERROR:Invalid HomePageTitle");
         extentTest.get().log(Status.PASS, "Expected title is matched with actual home page title");
     }
+
+    @Test(priority = 7, description = "TC_007_Verify date displayed in home page ")
+    public void Verify_date_displayed_in_home_page(){
+        login = new LoginPage(driver);
+        List<List<String>> data = excel.excelDataReader("HomePage");
+        String uname = data.get(1).get(0);
+        login.enterUserName(uname);
+        extentTest.get().log(Status.PASS, "User name entered successfully");
+        String pswd = data.get(1).get(1);
+        login.enterPassword(pswd);
+        extentTest.get().log(Status.PASS, "Password entered successfully");
+        home = login.clickOnLoginButton();
+        extentTest.get().log(Status.PASS, "clicked on login button successfully");
+        String actualDate=home.getDateDisplayedOnHomePage();
+        String expectedDate= home.getSystemDate();
+        extentTest.get().log(Status.PASS, "Home page date received");
+        Assert.assertEquals(actualDate,expectedDate,"ERROR ::Not current Date");
+        extentTest.get().log(Status.PASS, "Expected date is matched with actual home page date");
+    }
+
 }

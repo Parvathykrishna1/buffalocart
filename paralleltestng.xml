@@ -9,10 +9,11 @@
         <classes>
             <class name="com.buffalocart.testscripts.LoginPageTest">
                 <methods>
-                    <include name="verifyLoginPageTitle"/>
-                    <include name="verify_user_login_with_valid_user_credentials"/>
-                    <include name="verify_user_login_with_invalid_user_credentials"/>
+                    <exclude name="verifyLoginPageTitle"/>
+                    <exclude name="verify_user_login_with_valid_user_credentials"/>
+                    <exclude name="verify_user_login_with_invalid_user_credentials"/>
                     <include name="verify_Whether_User_Able_To_Click_On_RememberMe_CheckBox"/>
+                    <include name="Verify_error_message_displayed_on_Reset_Password_page_with_invalid_email_id"/>
                 </methods>
             </class>
         </classes>

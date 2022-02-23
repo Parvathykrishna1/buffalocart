@@ -196,4 +196,5 @@ public class PageUtility {
     public Set<String> getWindowHandlesId(WebDriver driver) {
         return driver.getWindowHandles();
     }
+
 }
